@@ -1,36 +1,100 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛒 Tekboom – E-commerce de Produtos Eletrônicos
 
-## Getting Started
+## 📌 Sobre o Projeto
 
-First, run the development server:
+O **Tekboom** é uma plataforma de e-commerce moderna, desenvolvida com **Next.js**, voltada para a venda de produtos eletrônicos. O sistema oferece funcionalidades como cadastro e login de usuários, exibição de catálogo, gerenciamento de carrinho de compras, finalização de pedidos e um painel administrativo completo.
+
+Além de ser responsivo e performático, o projeto é ideal tanto para estudos quanto para aplicações comerciais reais.
+
+---
+
+## 🚀 Começando
+
+Este é um projeto [Next.js](https://nextjs.org) criado com [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
+### 🔹 1. Clonar o Repositório
+
+```bash
+git clone https://github.com/muddyorc/TekBoom.git
+cd tekboom
+```
+
+### 🔹 2. Instalar as Dependências
+
+```bash
+npm install
+# ou
+yarn install
+# ou
+pnpm install
+# ou
+bun install
+```
+
+### 🔹 3. Configurar o Supabase
+
+- Crie um projeto no [Supabase](https://supabase.com/)
+- Copie as **chaves do projeto** e a **URL da API**
+- Crie um arquivo `.env` na raiz com as variáveis necessárias (exemplo disponível no repositório)
+
+### 🔹 4. Rodar o Servidor de Desenvolvimento
 
 ```bash
 npm run dev
-# or
+# ou
 yarn dev
-# or
+# ou
 pnpm dev
-# or
+# ou
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra [http://localhost:3000](http://localhost:3000) no navegador para ver o resultado.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Você pode começar a editar a aplicação modificando o arquivo `app/page.tsx`. As alterações são aplicadas automaticamente.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🛠 Tecnologias Utilizadas
 
-To learn more about Next.js, take a look at the following resources:
+- **Next.js**: framework React para aplicações fullstack modernas  
+- **React.js**: biblioteca para construção da interface do usuário  
+- **Node.js**: plataforma para execução de JavaScript no servidor  
+- **Express.js** (se aplicável em back-end complementar)  
+- **Supabase**: BaaS com banco de dados PostgreSQL, autenticação e storage  
+- **HTML5 e CSS3**  
+- **Tailwind CSS**: framework utilitário para estilização  
+- **Zod + React Hook Form**: para validação e controle de formulários  
+- **next/font com Geist**: para otimização e carregamento de fontes modernas  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📚 Recursos e Documentações
 
-## Deploy on Vercel
+- [Documentação Next.js](https://nextjs.org/docs)  
+- [Supabase Docs](https://supabase.com/docs)  
+- [Tailwind CSS Docs](https://tailwindcss.com/docs)  
+- [Zod Docs](https://zod.dev/)  
+- [React Hook Form Docs](https://react-hook-form.com/)  
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## ☁️ Deploy
+
+A forma mais simples de fazer deploy da aplicação é utilizando a plataforma [Vercel](https://vercel.com/new), que foi criada pelos mesmos desenvolvedores do Next.js.
+
+Veja a [documentação de deploy do Next.js](https://nextjs.org/docs/app/building-your-application/deploying) para mais detalhes.
+
+---
+
+## 📄 Considerações Finais
+
+O Tekboom é um projeto modular e escalável, seguindo boas práticas de desenvolvimento web. Ele pode servir como base para projetos reais de e-commerce ou ser uma excelente ferramenta de aprendizado fullstack.
+
+---
+
+## 👥 Autores
+
+- [muddyorc](https://github.com/muddyorc)  
+- [Rian Guedes](https://github.com/Rian122145)  
+- [Psyder](https://github.com/Psyd3r)
