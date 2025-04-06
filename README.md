@@ -95,6 +95,4 @@ O Tekboom é um projeto modular e escalável, seguindo boas práticas de desenvo
 
 ## 👥 Autores
 
-- [muddyorc](https://github.com/muddyorc)  
-- [Rian Guedes](https://github.com/Rian122145)  
-- [Psyder](https://github.com/Psyd3r)
+📌 **Autor:** [muddyorc](https://github.com/muddyorc) , [Rian Guedes](https://github.com/Rian122145) e [Psyder](https://github.com/Psyd3r) 
