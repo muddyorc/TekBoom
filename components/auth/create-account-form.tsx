@@ -1,4 +1,5 @@
-"use client";
+'use client';
+
 
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -11,6 +12,9 @@ import { Input } from "@/components/ui/input"
 
 import { FormDescription, FormField, FormItem, FormLabel, FormMessage, FormControl } from "../ui/form";
 import { CardDescription } from "../ui/card";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import { useRouter } from "next/navigation";
+
 
 const formSchema = z.object({
     email: z.string({
@@ -30,16 +34,40 @@ const formSchema = z.object({
 
 export function CreateAccountForm() {
 
+    const router = useRouter()
+
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
-            email: " ",
-            password: " ",
+            email: "",
+            password: "",
         }
     });
 
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         console.log(values);
+        try{
+            const supabase = createClientComponentClient()
+            const {email, password } = values;
+
+        const { error,
+            data: { user },
+         } = await supabase.auth.signUp({
+            email,
+            password,
+            options: {
+                emailRedirectTo: `${location.origin}/auth/callback`
+            }
+        });
+
+        
+        if(user) {
+            form.reset()
+            router.push("/")
+        }
+        }catch(error){
+            console.log("CreateAccountForm", error)
+        }
     };
 
     return <div className="flex flex-col justify-center items-center space-y-2">
@@ -61,7 +89,7 @@ export function CreateAccountForm() {
                     <FormDescription>
                         This is your E-mail
                     </FormDescription>
-                    <FormMessage></FormMessage>
+                    <FormMessage />
                     </FormItem>
                 )}
                 />
