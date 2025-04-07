@@ -18,16 +18,16 @@ import { useRouter } from "next/navigation";
 
 const formSchema = z.object({
     email: z.string({
-        required_error: "Email is required."
+        required_error: "O e-mail é obrigatório."
     }).email({
-        message: "Must be a valid email."
+        message: "Deve ser um e-mail válido."
     }),
     password: z.string({
-        required_error: "Password is required."
+        required_error: "A senha é obrigatória."
     }).min(7, {
-        message: "Password must have at least 7 characters"
+        message: "A senha deve ter pelo menos 7 caracteres"
     }).max(12, {
-        message: "Password must have at most 12 characters"
+        message: "A senha deve ter no máximo 12 caracteres"
     })
 
 });
@@ -70,24 +70,27 @@ export function CreateAccountForm() {
         }
     };
 
-    return <div className="flex flex-col justify-center items-center space-y-2">
-        <CardDescription>Create your account and enjoy all the benefits of Tekboom!</CardDescription>
+    return <div className="flex flex-col justify-center items-center space-y-2 ">
+        <CardDescription>Crie sua conta e aproveite todos os benefícios da Tekboom!</CardDescription>
         <Form {...form}>
             <form
                 onSubmit={form.handleSubmit(onSubmit)}
-                className="flex flex-col space-y-2"
+                className="flex flex-col space-y-2 w-full"
             >
                 <FormField
                 control={form.control}
                 name="email"
                 render={({ field }) => (
                     <FormItem>
-                    <FormLabel>Email</FormLabel>
+                    <FormLabel>
+                        <img src="/icons/o-email.png" alt="Email icon" className="w-4 h-4" />
+                        Email
+                        </FormLabel>
                     <FormControl>
                         <Input placeholder="E-mail" {...field} />
                     </FormControl>
                     <FormDescription>
-                        This is your E-mail
+                        Esse é seu E-mail
                     </FormDescription>
                     <FormMessage />
                     </FormItem>
@@ -99,18 +102,21 @@ export function CreateAccountForm() {
                 name="password"
                 render={({ field }) => (
                     <FormItem>
-                    <FormLabel>Password</FormLabel>
+                    <FormLabel>
+                        <img src="/icons/cadeado-trancado.png" alt="Email icon" className="w-4 h-4" />
+                        Senha
+                    </FormLabel>
                     <FormControl>
                         <Input placeholder="Password" {...field} />
                     </FormControl>
                     <FormDescription>
-                        This is your Password
+                        Esta é a sua senha
                     </FormDescription>
                     <FormMessage></FormMessage>
                     </FormItem>
                 )}
                 />
-                <Button type="submit">Create Account</Button>
+                <Button type="submit">Criar uma conta</Button>
             </form>
         </Form>
 
