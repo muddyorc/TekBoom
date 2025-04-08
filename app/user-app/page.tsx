@@ -1,23 +1,23 @@
 'use client'
 
-import Sidebar from "@/components/pages/sidebar"
-import { useState } from "react"
+import Navbar from "@/components/pages/navbar"
+import Banner from "@/components/pages/banner"
+import CategoryList from "@/components/pages/categories"
+import Footer from "@/components/pages/footer"
+import ProductCarousel from "@/components/pages/carousel"
 
 export default function UserApp() {
-  const [hovering, setHovering] = useState(false)
-
   return (
-    <div className="flex">
-      <Sidebar hovering={hovering} setHovering={setHovering} />
+    <div className="min-h-screen bg-gray-100">
+      {/* Navbar no topo */}
+      <Navbar />
+      <Banner />
+      <CategoryList />
+      {/* Conteúdo principal */}
+      <ProductCarousel />
 
-      <main
-        className={`
-          flex-1 bg-gray-100 p-8 transition-all duration-700 
-          ${hovering ? 'ml-64' : 'ml-[20px]'}
-        `}
-      >
-        <h1 className="text-2xl font-bold">Bem-vindo ao painel</h1>
-      </main>
+
+      <Footer />
     </div>
   )
 }
