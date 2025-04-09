@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useRef } from 'react'
+import { supabase } from '@/lib/supabase'
 
 export default function ProductForm({ onProductAdd }: { onProductAdd: (product: any) => void }) {
   const [imagePreview, setImagePreview] = useState<string | null>(null)
@@ -32,13 +33,27 @@ export default function ProductForm({ onProductAdd }: { onProductAdd: (product: 
     setProduct({ ...product, [name]: value })
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!product.image) return alert('Adicione uma imagem!')
-    onProductAdd(product)
-    setProduct({ name: '', description: '', price: '', category: '', quantity: '', image: '' })
-    setImagePreview(null)
-    fileInputRef.current!.value = ''
+
+    // 🔽 Inserção no Supabase (parte adicionada)
+    const { data, error } = await supabase.from('product').insert([product])
+
+    if (error) {
+      console.error('Erro ao inserir produto:', error)
+      alert('Erro ao cadastrar produto. Verifique o console.')
+      return
+    }
+
+    if (data) {
+      alert('Produto cadastrado com sucesso!')
+      onProductAdd(product)
+      setProduct({ name: '', description: '', price: '', category: '', quantity: '', image: '' })
+      setImagePreview(null)
+      fileInputRef.current!.value = ''
+    }
+    // 🔼 Fim da parte adicionada
   }
 
   return (
