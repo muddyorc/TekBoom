@@ -1,35 +1,53 @@
 'use client'
 
+import { useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const menuItems = [
-  "Home",
-  "Categorias",
-  "Ofertas",
-  "Novidades",
-  "Contato"
+  { label: "Home", path: "/user-app" },
+  { label: "Categorias", path: "/categorias" },
+  { label: "Ofertas", path: "/ofertas" },
+  { label: "Novidades", path: "/novidades" },
+  { label: "Criar Produtos", path: "/product/create" }
 ]
 
 export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false)
+
   return (
     <header className="w-full bg-zinc-900 text-white shadow-md">
       <div className="max-w-screen-xl mx-auto flex items-center justify-between px-6 py-3">
         {/* Logo */}
-        <div className="text-2xl font-bold text-orange-500">
-          Loja<span className="text-white">Tech</span>
+        <div className="flex items-center space-x-2">
+          <span className="text-2xl font-bold text-orange-500">
+            Tek<span className="text-white">Boom</span>
+          </span>
         </div>
 
-        {/* Menu */}
+        {/* Botão de menu mobile */}
+        <button
+          className="md:hidden focus:outline-none"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <div className="space-y-1">
+            <span className="block w-6 h-0.5 bg-white"></span>
+            <span className="block w-6 h-0.5 bg-white"></span>
+            <span className="block w-6 h-0.5 bg-white"></span>
+          </div>
+        </button>
+
+        {/* Menu normal (desktop) */}
         <nav className="hidden md:flex space-x-6 text-sm font-medium">
           {menuItems.map((item, index) => (
-            <a key={index} href="#" className="hover:text-orange-400 transition">
-              {item}
-            </a>
+            <Link key={index} href={item.path} className="hover:text-orange-400 transition">
+              {item.label}
+            </Link>
           ))}
         </nav>
 
         {/* Search + Cart */}
-        <div className="flex items-center space-x-4">
+        <div className="hidden md:flex items-center space-x-4">
           {/* Campo de busca */}
           <div className="relative">
             <input
@@ -60,6 +78,17 @@ export default function Navbar() {
           </div>
         </div>
       </div>
+
+      {/* Menu Mobile */}
+      {menuOpen && (
+        <div className="md:hidden bg-zinc-800 px-6 py-3 space-y-2 text-sm font-medium">
+          {menuItems.map((item, index) => (
+            <Link key={index} href={item.path} className="block hover:text-orange-400 transition">
+              {item.label}
+            </Link>
+          ))}
+        </div>
+      )}
     </header>
   )
 }

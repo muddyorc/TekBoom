@@ -22,12 +22,12 @@ export default function CategoryList() {
         <span className="flex-1 h-px bg-zinc-400 opacity-30 ml-5"></span>
       </h2>
 
-      {/* Lista de categorias (scroll horizontal) */}
-      <div className="flex gap-4 overflow-x-auto py-2 scrollbar-thin scrollbar-thumb-zinc-400 scrollbar-track-zinc-200">
+      {/* Lista de categorias responsiva */}
+      <div className="flex gap-4 overflow-x-auto scroll-smooth scrollbar-none py-2">
         {categories.map((cat, index) => (
           <div
             key={index}
-            className="min-w-[120px] flex-shrink-0 text-center p-4 bg-white rounded-lg shadow hover:shadow-lg hover:-translate-y-1 transition-transform cursor-pointer"
+            className="min-w-[96px] md:min-w-[120px] flex-shrink-0 text-center p-3 md:p-4 bg-white rounded-lg shadow hover:shadow-lg hover:-translate-y-1 transition-transform cursor-pointer"
           >
             <Image
               src={cat.icon}
@@ -36,7 +36,7 @@ export default function CategoryList() {
               height={36}
               className="mx-auto mb-2"
             />
-            <span className="text-sm text-zinc-800">{cat.name}</span>
+            <span className="text-xs md:text-sm text-zinc-800">{cat.name}</span>
           </div>
         ))}
       </div>
