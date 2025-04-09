@@ -19,7 +19,7 @@ export default function Footer() {
         <div>
           <h3 className="text-xl font-bold mb-4">Institucional</h3>
           <ul className="space-y-2 text-sm text-zinc-300">
-            <li><a href="/sobre" className="hover:text-orange-400">Quem Somos</a></li>
+            <li><a href="/about" className="hover:text-orange-400">Quem Somos</a></li>
             <li><a href="/politica-de-privacidade" className="hover:text-orange-400">Política de Privacidade</a></li>
             <li><a href="/termos" className="hover:text-orange-400">Termos de Uso</a></li>
             <li><a href="/ajuda" className="hover:text-orange-400">Central de Ajuda</a></li>

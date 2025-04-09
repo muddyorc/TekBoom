@@ -8,7 +8,6 @@ const menuItems = [
   { label: "Home", path: "/user-app" },
   { label: "Categorias", path: "/categorias" },
   { label: "Ofertas", path: "/ofertas" },
-  { label: "Novidades", path: "/novidades" },
   { label: "Criar Produtos", path: "/product/create" }
 ]
 
